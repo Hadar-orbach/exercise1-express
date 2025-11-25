@@ -1,0 +1,48 @@
+### Add Post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "sender": "Meitar",
+  "content": "Hello!"
+}
+
+### Get All Posts
+GET http://localhost:3000/posts
+
+### Get By ID
+GET http://localhost:3000/posts/6926106be60c5895c22fd2d4
+
+### Get By Sender
+GET http://localhost:3000/posts/filter/by-sender?sender=Meitar
+
+### Update Post
+PUT http://localhost:3000/posts/6926106be60c5895c22fd2d4
+Content-Type: application/json
+
+{
+  "content": "Updated text"
+}
+
+### Add Comment
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "postId": "6926106be60c5895c22fd2d4",
+  "author": "Hadar and Meitar",
+  "text": "Nice!"
+}
+
+### Get Comments By Post
+GET http://localhost:3000/comments/post/6926106be60c5895c22fd2d4
+### Update Comment
+PUT http://localhost:3000/comments/69261236e60c5895c22fd2e7
+Content-Type: application/json
+
+{
+  "text": "Edited comment"
+}
+
+### Delete Comment
+DELETE http://localhost:3000/comments/69261236e60c5895c22fd2e7

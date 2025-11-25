@@ -17,8 +17,8 @@ app.use(express.json());
     res.send("Server is up");
   });
 
-//   app.use("/posts", postRouter);
-//   app.use("/comments", commentRouter);
+  app.use("/posts", postRouter);
+  app.use("/comments", commentRouter);
 
   app.listen(PORT, () => console.log("Server running on port 3000"));
 })();
