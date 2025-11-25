@@ -30,3 +30,28 @@ exports.getPostById = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getPostsBySender = async (req, res) => {
+  try {
+    const posts = await Post.find({ sender: req.query.sender });
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.updatePost = async (req, res) => {
+  try {
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    if (!post) return res.status(404).json({ error: "Post not found" });
+
+    res.json(post);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
